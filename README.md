@@ -41,3 +41,10 @@ Examples of usage:
 ## Reportes
 
 Using cypress in command line give as opportunity to make screenshots and records videos. I've turned off recording video to speed up tests, but to turn it on just open `cypress.json`, find `video` and change flag to `true`
+
+## Running tests from Docker
+
+To build project: `docker build -t ${nameOfBuild} .` example: `docker build -t cypress .`
+To run tests in docker `docker run -it cypress` it will run command `npm run test` - this is command from package.json. In case you want to use different command modify in Dokcerfile `CMD ["npm", "run", "test"]` section.  
+
+In case you would like to delete docker image, use `docker images` then find IMAGE ID and use `docker image rm ${IMAGEID}` - sometimes use --force flag.
