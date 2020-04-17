@@ -1,8 +1,6 @@
 FROM cypress/base:10
 
-COPY package.json package.json
-RUN npm i
-COPY ./cypress ./cypress
-COPY cypress.json cypress.json
+# Install dependencies
+COPY . . 
+RUN rm -rf node_modules && npm i
 
-CMD ["npm", "run", "test"]

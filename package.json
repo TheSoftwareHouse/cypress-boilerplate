@@ -5,8 +5,8 @@
   "author": "Józef Szymala",
   "main": "index.js",
   "scripts": {
-    "lint": "eslint \"cypress/**/*.js\"",
-    "prettier": "prettier --write 'cypress'",
+    "lint": "eslint  \"cypress/**/*.js\" --fix --ignore-path=\".gitignore\"",
+    "prettier": "prettier --write \"cypress/**/*.js\" --ignore-path=\".gitignore\"",
     "test": "npx cypress run"
   },
   "dependencies": {
@@ -14,6 +14,7 @@
     "cypress-xpath": "1.4.0",
     "eslint": "6.8.0",
     "eslint-config-airbnb": "18.1.0",
+    "eslint-config-prettier": "6.10.1",
     "eslint-plugin-cypress": "2.10.3",
     "eslint-plugin-import": "2.20.2",
     "eslint-plugin-jsx-a11y": "6.2.3",
@@ -24,7 +25,7 @@
   },
   "lint-staged": {
     "cypress/**/*.js": [
-      "prettier --write",
+      "npm run prettier",
       "npm run lint"
     ]
   },
