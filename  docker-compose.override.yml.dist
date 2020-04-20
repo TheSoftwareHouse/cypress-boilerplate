@@ -1,10 +1,6 @@
-version: "1.0"
+version: "3.8"
 services: 
   e2e:
-    image: cypress
-    build: ./e2e
-    container_name: cypress
-    command: npx cypress run
     volumes:
-      - ./e2e/cypress:/app/cypress
-      - ./e2e/cypress.json:/app/cypress.json
+      - ./cypress:/app/cypress
+      - ./cypress.json:/app/cypress.json
