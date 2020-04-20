@@ -1,0 +1,7 @@
+version: "3.4"
+services: 
+  e2e:
+    image: cypress
+    build: .
+    container_name: cypress
+    command: npm run test
