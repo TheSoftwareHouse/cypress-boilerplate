@@ -45,7 +45,7 @@ Using cypress in command line give as opportunity to make screenshots and record
 ## Running tests from Docker
 
 To build project: `docker build -t ${nameOfBuild} .` example: `docker build -t cypress .`
-To run tests in docker `docker-compose up e2e` it will run command `npm run test` - this is command from package.json. In case you want to use different command modify in docker-compose `command: npm run test` section.  
+To run tests in docker `docker-compose run --rm e2e` it will run command `npm run test` - this is command from package.json, and after that container will be removed. In case you want to use different command modify in docker-compose `command: npm run test` section.  
 
 In case you would like to delete docker image, use `docker images` then find IMAGE ID and use `docker image rm ${image}` - sometimes use --force flag.
 
