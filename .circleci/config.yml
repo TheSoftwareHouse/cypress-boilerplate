@@ -1,46 +1,18 @@
-version: 2.1
+version: 2
 jobs:
-  cypress-e2e:
-    docker:
-      - image: cypress/base:8
-        environment:
-          TERM: xterm
-    working_directory: ~/app
+  build:
+    # to speed up Dockers builds turn on layer caching
+    # which is a paid CircleCI feature
+    # https://circleci.com/docs/2.0/docker-layer-caching/
+    machine:
+      docker_layer_caching: false
     steps:
-      - checkout
-      - restore_cache:
-          keys:
-            - v1-npm-deps-{{ .Branch }}-{{ checksum "package-lock.json" }}
-            - v1-npm-deps-{{ .Branch }}-
-            - v1-npm-deps-
-      - run: npm install
-      - save_cache:
-          key: v1-npm-deps-{{ .Branch }}-{{ checksum "package-lock.json" }}
-          paths:
-            - ~/.npm
-            - ~/.cache  
-      - run:
-          when: always
-          name: Run Cypress E2E
-          command: npm run cypress
-      - store_artifacts:
-          path: cypress/reports
-      - store_artifacts:
-          path: cypress/videos
- 
+    - checkout
+    - run: docker-compose build
+    - run: docker-compose run --rm e2e
+
 workflows:
-  build-test:
+  build:
     jobs:
-      - cypress-e2e
- 
-  nightly:
-    triggers:
-      - schedule:
-          cron: "0 0 * * *"
-          filters:
-            branches:
-              only:
-                - circle_ci
- 
-    jobs:
-      - cypress-e2e  
+    - build
+  version: 2
