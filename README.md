@@ -50,3 +50,7 @@ To run tests in docker `docker-compose run --rm e2e` it will run command `npm ru
 In case you would like to delete docker image, use `docker images` then find IMAGE ID and use `docker image rm ${image}` - sometimes use --force flag.
 
 In case you would like to remove docker-compose service type: `docker-compose ps e2e` if it return e2e type `docker-compose rm e2e` 
+
+## Running test from CircleCI
+
+In `.circleci` folder there is `config.yml` with configuration of the running test in CircleCI. After login in CCI add your repository. For more information read article with information about [full configuration](https://tsh.io/blog/continuous-integration-for-e2e-tests-2-4-circleci-configuration-for-test-automation/)
