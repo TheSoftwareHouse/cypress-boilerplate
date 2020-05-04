@@ -1,0 +1,14 @@
+image:  tshio/node-pipelines
+pipelines:
+  default:
+  - step:
+      name: Pipeline Cypress E2E
+      services:
+        - docker
+      caches:
+        - docker
+      script:
+        - docker-compose run --rm e2e
+      artifacts:
+        - cypress/screenshots/**
+        - cypress/videos/**

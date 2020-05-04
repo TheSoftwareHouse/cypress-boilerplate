@@ -8,6 +8,8 @@ module.exports = {
 		'no-await-in-loop': 0,
 		'no-plusplus': 0,
 		'no-unused-vars': ['error', { args: 'none' }],
+		'import/no-dynamic-require': 0,
+		'global-require': 0
 	},
 	env: {
 		node: true,

@@ -1,6 +1,6 @@
 version: 2
 jobs:
-  build:
+  e2e:
     # to speed up Dockers builds turn on layer caching
     # which is a paid CircleCI feature
     # https://circleci.com/docs/2.0/docker-layer-caching/
@@ -9,9 +9,13 @@ jobs:
     steps:
     - checkout
     - run: docker-compose run --rm e2e
+    - store_artifacts:
+        path: cypress/screenshots
+    - store_artifacts:
+        path: cypress/videos
 
 workflows:
   build:
     jobs:
-    - build
+    - e2e
   version: 2

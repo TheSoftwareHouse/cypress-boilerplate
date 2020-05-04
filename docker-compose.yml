@@ -1,7 +1,8 @@
-version: "3.4"
+version: "3.2"
 services: 
   e2e:
-    image: cypress
     build: .
     container_name: cypress
-    command: npm run test
+    volumes:
+      - ./cypress:/app/cypress
+      - ./cypress.json:/app/cypress.json

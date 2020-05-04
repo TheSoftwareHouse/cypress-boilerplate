@@ -1,21 +1,19 @@
-// / <reference types="cypress" />
-// ***********************************************************
-// This example plugins/index.js can be used to load plugins
-//
-// You can change the location of this file or turn off loading
-// the plugins file with the 'pluginsFile' configuration option.
-//
-// You can read more here:
-// https://on.cypress.io/plugins-guide
-// ***********************************************************
+const fs = require('fs-extra');
+const path = require('path');
 
-// This function is called when a project is opened or re-opened (e.g. due to
-// the project's config changing)
+function getConfigurationByFile(config) {
+  const file = config.env.configFile || 'cypress.staging';
+  const obj = require(`../config/${file}.js`);
+  const pathToConfigFile = path.resolve('.', 'cypress/config/tmp', 'config.json');
 
-/**
- * @type {Cypress.PluginConfig}
- */
+  fs.writeJson(pathToConfigFile, obj, (err) => {
+    if (err) return console.error(err);
+    return true;
+  });
+
+  return fs.readJSON(pathToConfigFile);
+}
+
 module.exports = (on, config) => {
-  // `on` is used to hook into various events Cypress emits
-  // `config` is the resolved Cypress config
+  return getConfigurationByFile(config);
 };
