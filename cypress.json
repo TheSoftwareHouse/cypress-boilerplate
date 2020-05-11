@@ -1,6 +1,6 @@
 {
   "baseUrl": "https://www.google.pl",
-  "video": false,
+  "video": true,
   "watchForFileChanges": false,
   "failOnStatusCode": false
 }
