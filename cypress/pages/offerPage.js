@@ -14,7 +14,7 @@ class OfferPage {
   }
 
   testSalaryAvailability() {
-    cy.get(this.elements.salary).should('be.visible');
+    cy.isVisible(this.elements.salary);
 
     return this;
   }

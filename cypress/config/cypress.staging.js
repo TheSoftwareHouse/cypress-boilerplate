@@ -5,4 +5,6 @@ module.exports = {
   video: false,
   watchForFileChanges: false,
   failOnStatusCode: false,
+  viewportWidth: 1440,
+  viewportHeight: 900,
 };

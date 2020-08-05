@@ -10,7 +10,7 @@ class HeaderComponent extends BaseComponent {
   }
 
   testLogoPresence() {
-    cy.get(this.elements.logo).should('be.visible');
+    cy.isVisible(this.elements.logo);
 
     return this;
   }
