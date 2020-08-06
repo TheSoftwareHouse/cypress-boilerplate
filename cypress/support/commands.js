@@ -27,3 +27,7 @@
 Cypress.Commands.add('sampleFillInput', (element, string) => {
   cy.get(element).click().type(string);
 });
+
+Cypress.Commands.add('isVisible', (element) => {
+  cy.get(element).should('be.visible');
+});

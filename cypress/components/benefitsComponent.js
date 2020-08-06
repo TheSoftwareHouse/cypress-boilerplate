@@ -10,7 +10,7 @@ class BenefitsComponent extends BaseComponent {
   }
 
   testBenefitsPresence() {
-    cy.get(this.elements.section).should('be.visible');
+    cy.isVisible(this.elements.section);
 
     return this;
   }

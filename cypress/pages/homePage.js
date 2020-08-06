@@ -5,6 +5,7 @@ import BasePage from './basePage';
 class HomePage extends BasePage {
   constructor() {
     super();
+    this.url = 'https://www.tsh.io';
     this.elements = {};
     this.components = {
       header: new HeaderComponent(),
@@ -12,7 +13,7 @@ class HomePage extends BasePage {
   }
 
   open() {
-    cy.visit(this.commonData.baseUrl);
+    cy.visit(this.url);
 
     return this;
   }
