@@ -23,7 +23,7 @@ class CareerPage extends BasePage {
   }
 
   testOffersCount() {
-    cy.get(this.elements.activeTab).find(this.elements.offer).should('have.length', 12);
+    cy.get(this.elements.activeTab).find(this.elements.offer).its('length').should('be.greaterThan', 0);
 
     return this;
   }
