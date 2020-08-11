@@ -2,7 +2,7 @@ const fs = require('fs-extra');
 const path = require('path');
 
 function getConfigurationByFile(file) {
-  const pathToConfigFile = path.resolve('.', 'cypress/config', `cypress.${file}.json`);
+  const pathToConfigFile = path.resolve('.', 'cypress/config', `${file}.json`);
 
   return fs.readJson(pathToConfigFile);
 }

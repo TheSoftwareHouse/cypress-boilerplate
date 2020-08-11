@@ -1,19 +1,23 @@
 #!/usr/bin/env sh
 set -e
 case "$1" in
-    'prod')        
-        npm run prod
+    'develop')        
+        npm run e2e:develop
     ;;
 
     'local')        
-       npm run local
+       npm run e2e:local
+    ;;
+
+    'prod')        
+        npm run e2e:prod
     ;;
 
     'staging')        
-       npm run staging
+       npm run e2e:staging
     ;;
     *)
     # default
-    npm run staging
+    npm run e2e:staging
 esac
 exit 0
