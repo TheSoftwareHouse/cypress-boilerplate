@@ -30,8 +30,8 @@ To avoid this problem:
 
 ## Environment variables
 
-To use environment variables in `cypress/config` folder add json with excepted configuration. Then you can run simply `npm run cypress run --env configFile="cypress.addedFile"`.
-In `package.json` `scripts` section there is example of usage `npm run staging`. If user doesn't provide any environment variable then the `cypress.staging` will be used. To change destination of the configs file, go to `cypress/plugins/index.js` and edit method for configuration. 
+To use environment variables in `cypress/config` folder add json with excepted configuration. Then you can run simply `npm run cypress run --env configFile="addedFile"`.
+In `package.json` `scripts` section there is example of usage `npm run e2e:staging`. If user doesn't provide any environment variable then the `cypress.develop.json` will be used. To change destination of the configs file, go to `cypress/plugins/index.js` and edit method for configuration. 
 
 ## Running Cypress with Test Runner
  

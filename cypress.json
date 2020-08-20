@@ -1,6 +1,6 @@
 {
   "baseUrl": "https://www.tsh.io",
-  "video": true,
+  "video": false,
   "watchForFileChanges": false,
   "failOnStatusCode": false,
   "viewportWidth": 1440,
