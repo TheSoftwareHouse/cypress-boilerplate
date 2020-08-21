@@ -4,5 +4,12 @@
   "watchForFileChanges": false,
   "failOnStatusCode": false,
   "viewportWidth": 1440,
-  "viewportHeight": 900
+  "viewportHeight": 900,
+  "reporter": "mochawesome",
+  "reporterOptions": {
+    "reportDir": "cypress/reports/integration",
+    "overwrite": false,
+      "html": false,
+      "json": true
+  }
 }

@@ -6,10 +6,15 @@
   "main": "index.js",
   "scripts": {
     "cy:open": "cypress open",
+    "cy:run": "cypress run",
+    "cy:start": "npm run reports:clean; npm run cy:run; npm run reports:merge; npm run reports:generate",
     "e2e:develop": "cypress run --env configFile=cypress.develop --headed",
     "e2e:local": "cypress run --env configFile=cypress.local --headed",
     "e2e:prod": "cypress run --env configFile=cypress.prod --headed",
     "e2e:staging": "cypress run --env configFile=cypress.staging --headed",
+    "reports:clean": "rm -rf cypress/reports/integration",
+    "reports:merge": "npx mochawesome-merge cypress/reports/integration/*.json --output cypress/reports/report.json",
+    "reports:generate": "npx mochawesome-report-generator --reportDir cypress/reports cypress/reports/report.json",
     "lint": "eslint  \"cypress/**/*.js\" --fix --ignore-path=\".gitignore\"",
     "prettier": "prettier --write \"cypress/**/*.js\" --ignore-path=\".gitignore\""
   },
@@ -26,6 +31,10 @@
     "fs-extra": "9.0.0",
     "husky": "4.2.3",
     "lint-staged": "10.1.0",
+    "mocha": "8.1.1",
+    "mochawesome": "6.1.1",
+    "mochawesome-merge": "4.1.0",
+    "mochawesome-report-generator": "5.1.0",
     "prettier": "2.0.2"
   },
   "lint-staged": {

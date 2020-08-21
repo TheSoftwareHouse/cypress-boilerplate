@@ -8,7 +8,7 @@ function getConfigurationByFile(file) {
 }
 
 module.exports = (on, config) => {
-  const file = config.env.configFile || 'develop';
+  const file = config.env.configFile || 'cypress.staging';
 
   return getConfigurationByFile(file);
 };
