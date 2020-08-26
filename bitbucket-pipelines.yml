@@ -1,14 +1,57 @@
-image:  tshio/node-pipelines
+image: cypress/base:12
+options:
+  max-time: 10
+
+definitions:
+  steps:
+    - step: &dependencies
+        name: Install dependencies
+        caches:
+          - npm
+          - cypress
+          - node
+        script:
+          - npm ci
+    - step: &e2eDevelop
+        name: E2E develop tests
+        caches:
+          - node
+          - cypress
+        script:
+          - npm run e2e:develop
+        artifacts:
+          - cypress/screenshots/**
+          - cypress/videos/**
+          - cypress/reports/**
+    - step: &e2eStaging
+        name: E2E staging tests
+        caches:
+          - node
+          - cypress
+        script:
+          - npm run e2e:staging
+        artifacts:
+          - cypress/screenshots/**
+          - cypress/videos/**
+          - cypress/reports/**
+  caches:
+    npm: $HOME/.npm
+    cypress: $HOME/.cache/Cypress
+
 pipelines:
   default:
-  - step:
-      name: Pipeline Cypress E2E
-      services:
-        - docker
-      caches:
-        - docker
-      script:
-        - docker-compose run --rm e2e
-      artifacts:
-        - cypress/screenshots/**
-        - cypress/videos/**
+    - step:
+        <<: *dependencies
+    - step:
+        <<: *e2eStaging
+  custom:
+    develop:
+      - step:
+          <<: *dependencies
+      - step:
+          <<: *e2eDevelop
+    staging:
+      - step:
+          <<: *dependencies
+      - step:
+          <<: *e2eStaging
