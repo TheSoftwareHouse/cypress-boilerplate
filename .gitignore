@@ -1,6 +1,7 @@
-node_modules/
+.DS_Store
+.idea
 cypress/videos/
 cypress/screenshots/
 cypress/reports/
-.DS_Store
 docker-compose.override.yml
+node_modules/
