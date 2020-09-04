@@ -1,5 +1,6 @@
 {
   "baseUrl": "https://www.tsh.io",
+  "defaultCommandTimeout": 10000,
   "video": false,
   "watchForFileChanges": false,
   "failOnStatusCode": false,

@@ -1,23 +1,23 @@
 #!/usr/bin/env sh
 set -e
 case "$1" in
-    'develop')        
-        npm run e2e:develop
+    "develop")        
+      "./cypress.sh develop"
     ;;
 
-    'local')        
-       npm run e2e:local
+    "local")        
+      "./cypress.sh local"
     ;;
 
-    'prod')        
-        npm run e2e:prod
+    "prod")        
+      "./cypress.sh prod"
     ;;
 
-    'staging')        
-       npm run e2e:staging
+    "staging")        
+      "./cypress.sh staging"
     ;;
     *)
     # default
-    npm run e2e:staging
+    "./cypress.sh staging"
 esac
 exit 0
