@@ -30,8 +30,7 @@ To avoid this problem:
 
 ## Environment variables
 
-To use environment variables in `cypress/config` folder add json with excepted configuration. Then you can run simply `npm run cypress run --env configFile="addedFile"`.
-In `package.json` `scripts` section there is example of usage `npm run e2e:staging`. If user doesn't provide any environment variable then the `cypress.develop.json` will be used. To change destination of the configs file, go to `cypress/plugins/index.js` and edit method for configuration. 
+To use environment variables in `cypress/config` folder add json with excepted configuration. Then you can run simply `./cypress.sh "addedEnvironment"`. If user doesn't provide any environment variable then the `cypress.staging.json` will be used. To change destination of the configs file, go to `cypress/plugins/index.js` and edit method for configuration. 
 
 ## Running Cypress with Test Runner
  
@@ -40,11 +39,15 @@ To open `Test Runner`:
 
 After that the desktop application will open where you can select and run desired test suit. 
 
+## Running Cypress from bash script
+
+There is prepared dedicated script `cypress.sh` that provide running specific kind of tests on desired environment. You can run complete test suite but also only tests related to API or UI. Just run command with scheme: `./cypress.sh "environment" "typeOfTests"`. For example to run complete test suite on develop environment use `./cypress.sh develop` but if you would like to run only UI tests on staging, run `./cypress.sh staging ui`, for API `./cypress.sh staging api`.
+
 ## Running Cypress in CLI 
 
 To run specific tests using terminal:
 - open `root` folder. 
-- use command `$(npm bin)/cypress run --spec 'cypress/integration/sample-test.spec.js'` - you can add in scriptt `cypress: cypress run` and use command `npm run cypress`.
+- use command `$(npm bin)/cypress run --spec 'cypress/integration/sample-test.spec.js'` - you can add in script `cypress: cypress run` and use command `npm run cypress`.
 
 Examples of usage: 
 - to run all tests from testFolder folder use: `$(npm bin)/cypres --spec 'cypress/integration/*'`
@@ -52,12 +55,14 @@ Examples of usage:
 
 ## Reports
 
-Using cypress in command line give as opportunity to make screenshots and records videos. I've turned off recording video to speed up tests, but to turn it on just open `cypress.json`, find `video` and change flag to `true`
+Using cypress in command line give as opportunity to make screenshots and records videos. I've turned off recording video to speed up tests, but to turn it on just open `cypress.json`, find `video` and change flag to `true`.
+
+Running command `npm run cy:start` will run complete set of tests and generate report with Mochawesome generator. It will be added to `/cypress/reports/` directory.
 
 ## Running tests from Docker
 
 To build project: `docker build -t ${nameOfBuild} .` example: `docker build -t cypress .`
-To run tests in docker `docker-compose run --rm e2e` it will run command `npm run staging` after that container will be removed. In case you want to use different environment use `docker-compose run --rm e2e prod` or  `docker-compose run --rm e2e local`  
+To run tests in docker `docker-compose run --rm e2e` it will run command `./cypress.sh staging` after that container will be removed. In case you want to use different environment use `docker-compose run --rm e2e prod` or  `docker-compose run --rm e2e local`  
 
 In case you would like to delete docker image, use `docker images` then find IMAGE ID and use `docker image rm ${image}` - sometimes use --force flag.
 
