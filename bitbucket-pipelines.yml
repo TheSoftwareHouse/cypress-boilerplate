@@ -19,7 +19,7 @@ definitions:
           - cypress
         script:
           - npm run reports:clean 
-          - ./cypress.sh develop || true
+          - ./cypress.sh develop
         artifacts:
           - cypress/screenshots/**
           - cypress/videos/**
@@ -31,7 +31,7 @@ definitions:
           - cypress
         script:
           - npm run reports:clean 
-          - ./cypress.sh develop api || true
+          - ./cypress.sh develop api
         artifacts:
           - cypress/screenshots/**
           - cypress/videos/**
@@ -43,7 +43,7 @@ definitions:
           - cypress
         script:
           - npm run reports:clean 
-          - ./cypress.sh develop ui || true
+          - ./cypress.sh develop ui
         artifacts:
           - cypress/screenshots/**
           - cypress/videos/**
@@ -55,7 +55,7 @@ definitions:
           - cypress
         script:
           - npm run reports:clean
-          - ./cypress.sh staging || true
+          - ./cypress.sh staging
         artifacts:
           - cypress/screenshots/**
           - cypress/videos/**
@@ -67,7 +67,7 @@ definitions:
           - cypress
         script:
           - npm run reports:clean 
-          - ./cypress.sh staging api || true
+          - ./cypress.sh staging api
         artifacts:
           - cypress/screenshots/**
           - cypress/videos/**
@@ -79,7 +79,7 @@ definitions:
           - cypress
         script:
           - npm run reports:clean 
-          - ./cypress.sh staging ui || true
+          - ./cypress.sh staging ui
         artifacts:
           - cypress/screenshots/**
           - cypress/videos/**

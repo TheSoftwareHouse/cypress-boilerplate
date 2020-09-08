@@ -17,7 +17,13 @@ class CareerPage extends BasePage {
   }
 
   testTitle() {
-    cy.title().should('eq', this.commonData.title.career);
+    cy.url().then((url) => {
+      if (url.includes(this.commonData.path.careerEN)) {
+        cy.title().should('equal', this.commonData.title.careerEN);
+      } else {
+        cy.title().should('equal', this.commonData.title.careerPL);
+      }
+    });
 
     return this;
   }
