@@ -19,7 +19,7 @@ class HomePage extends BasePage {
   }
 
   testTitle() {
-    cy.title().should('eq', this.commonData.title.home);
+    cy.title().should('equal', this.commonData.title.home);
 
     return this;
   }
