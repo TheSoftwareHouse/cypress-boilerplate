@@ -2,22 +2,22 @@
 set -e
 case "$1" in
     "develop")        
-      "./cypress.sh develop"
+      eval "./cypress.sh develop"
     ;;
 
     "local")        
-      "./cypress.sh local"
+      eval "./cypress.sh local"
     ;;
 
     "prod")        
-      "./cypress.sh prod"
+      eval "./cypress.sh prod"
     ;;
 
     "staging")        
-      "./cypress.sh staging"
+      eval "./cypress.sh staging"
     ;;
     *)
     # default
-    "./cypress.sh staging"
+    eval "./cypress.sh staging"
 esac
 exit 0
