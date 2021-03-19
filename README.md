@@ -20,6 +20,11 @@ Install dependencies:
 
 - `npm install`
 
+Install cypress:
+
+- `npm install cypress`
+
+
 Run tests on local machine:
 
 - `./cypress.sh`
