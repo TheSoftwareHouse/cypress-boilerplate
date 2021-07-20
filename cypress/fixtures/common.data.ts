@@ -1,7 +1,10 @@
-const commonData = {
-  baseUrl: 'https://www.tsh.io',
+export type CommonData = {
+  [key: string]: any;
+};
+
+export const commonData: CommonData = {
   title: {
-    home: 'The Software House – Custom software development & design',
+    home: 'The Software House – custom product design & software development company',
     careerPL: 'Praca dla programisty – oferty pracy w The Software House',
     careerEN: 'Job for developer – job offers at The Software House',
   },
@@ -13,5 +16,3 @@ const commonData = {
     careerEN: '/career',
   },
 };
-
-module.exports = commonData;

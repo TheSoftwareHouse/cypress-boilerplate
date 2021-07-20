@@ -13,86 +13,88 @@ definitions:
         script:
           - npm ci
     - step: &e2eDevelop
-        name: E2E develop tests
+        name: E2E develop tests and reports
         caches:
           - node
           - cypress
         script:
-          - npm run reports:clean 
+          - npm run reports:clean
           - ./cypress.sh develop
+          - npm run reports:merge
+          - npm run reports:generate
         artifacts:
           - cypress/screenshots/**
           - cypress/videos/**
           - cypress/reports/**
     - step: &e2eDevelopApi
-        name: E2E develop API tests
+        name: E2E develop API tests and reports
         caches:
           - node
           - cypress
         script:
-          - npm run reports:clean 
+          - npm run reports:clean
           - ./cypress.sh develop api
+          - npm run reports:merge
+          - npm run reports:generate
         artifacts:
           - cypress/screenshots/**
           - cypress/videos/**
           - cypress/reports/**
     - step: &e2eDevelopUi
-        name: E2E develop UI ests
+        name: E2E develop UI tests and reports
         caches:
           - node
           - cypress
         script:
-          - npm run reports:clean 
+          - npm run reports:clean
           - ./cypress.sh develop ui
+          - npm run reports:merge
+          - npm run reports:generate
         artifacts:
           - cypress/screenshots/**
           - cypress/videos/**
           - cypress/reports/**
     - step: &e2eStaging
-        name: E2E staging tests
+        name: E2E staging tests and reports
         caches:
           - node
           - cypress
         script:
           - npm run reports:clean
           - ./cypress.sh staging
+          - npm run reports:merge
+          - npm run reports:generate
         artifacts:
           - cypress/screenshots/**
           - cypress/videos/**
           - cypress/reports/**
     - step: &e2eStagingApi
-        name: E2E staging API tests
+        name: E2E staging API tests and reports
         caches:
           - node
           - cypress
         script:
-          - npm run reports:clean 
+          - npm run reports:clean
           - ./cypress.sh staging api
+          - npm run reports:merge
+          - npm run reports:generate
         artifacts:
           - cypress/screenshots/**
           - cypress/videos/**
           - cypress/reports/**
     - step: &e2eStagingUi
-        name: E2E staging UI tests
+        name: E2E staging UI tests and reports
         caches:
           - node
           - cypress
         script:
-          - npm run reports:clean 
+          - npm run reports:clean
           - ./cypress.sh staging ui
-        artifacts:
-          - cypress/screenshots/**
-          - cypress/videos/**
-          - cypress/reports/**
-    - step: &generateReport
-        name: Generate report
-        caches:
-          - npm
-          - node
-        script:
           - npm run reports:merge
           - npm run reports:generate
         artifacts:
+          - cypress/screenshots/**
+          - cypress/videos/**
           - cypress/reports/**
   caches:
     npm: $HOME/.npm
@@ -104,48 +106,34 @@ pipelines:
         <<: *dependencies
     - step:
         <<: *e2eStaging
-    - step:
-        <<: *generateReport
   custom:
     develop:
       - step:
           <<: *dependencies
       - step:
           <<: *e2eDevelop
-      - step:
-          <<: *generateReport
     develop-api:
       - step:
           <<: *dependencies
       - step:
           <<: *e2eDevelopApi
-      - step:
-          <<: *generateReport
     develop-ui:
       - step:
           <<: *dependencies
       - step:
           <<: *e2eDevelopUi
-      - step:
-          <<: *generateReport
     staging:
       - step:
           <<: *dependencies
       - step:
           <<: *e2eStaging
-      - step:
-          <<: *generateReport
     staging-api:
       - step:
           <<: *dependencies
       - step:
           <<: *e2eStagingApi
-      - step:
-          <<: *generateReport
     staging-ui:
       - step:
           <<: *dependencies
       - step:
           <<: *e2eStagingUi
-      - step:
-          <<: *generateReport

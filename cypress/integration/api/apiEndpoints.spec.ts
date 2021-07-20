@@ -1,4 +1,4 @@
-import RedirectLinksEndpoint from '../../endpoints/redirectLinksEndpoint';
+import RedirectLinksEndpoint from '../../endpoints/redirectLinks.endpoint';
 
 describe('As a developer I want to check response of /redirect_links', () => {
   const redirectLinksEndpoint = new RedirectLinksEndpoint();

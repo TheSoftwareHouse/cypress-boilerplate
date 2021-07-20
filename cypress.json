@@ -2,15 +2,21 @@
   "baseUrl": "https://www.tsh.io",
   "defaultCommandTimeout": 10000,
   "video": false,
+  "chromeWebSecurity": true,
   "watchForFileChanges": false,
   "failOnStatusCode": false,
   "viewportWidth": 1440,
   "viewportHeight": 900,
+  "ignoreTestFiles": "*.js",
   "reporter": "mochawesome",
   "reporterOptions": {
     "reportDir": "cypress/reports/integration",
     "overwrite": false,
-      "html": false,
-      "json": true
+    "html": false,
+    "json": true
+  },
+  "retries": {
+    "runMode": 2,
+    "openMode": 0
   }
 }

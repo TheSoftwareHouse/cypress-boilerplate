@@ -1,7 +1,7 @@
-import BenefitsComponent from '../components/benefitsComponent';
-import HeaderComponent from '../components/headerComponent';
+import BenefitsComponent from '../components/benefits.component';
+import HeaderComponent from '../components/header.component';
 
-import BasePage from './basePage';
+import BasePage from './base.page';
 
 class CareerPage extends BasePage {
   constructor() {
@@ -16,7 +16,7 @@ class CareerPage extends BasePage {
     };
   }
 
-  testTitle() {
+  public testTitle() {
     cy.url().then((url) => {
       if (url.includes(this.commonData.path.careerEN)) {
         cy.title().should('equal', this.commonData.title.careerEN);
@@ -24,31 +24,23 @@ class CareerPage extends BasePage {
         cy.title().should('equal', this.commonData.title.careerPL);
       }
     });
-
-    return this;
   }
 
-  testOffersCount() {
+  public testOffersCount() {
     cy.get(this.elements.activeTab).find(this.elements.offer).its('length').should('be.greaterThan', 0);
-
-    return this;
   }
 
-  testCommonElements() {
+  public testCommonElements() {
     this.testTitle();
 
     this.components.header.testLogoPresence();
 
     this.components.benefits.testBenefitsPresence();
     this.components.benefits.testBenefitsNumber();
-
-    return this;
   }
 
-  goToFirstOfferDetails() {
+  public goToFirstOfferDetails() {
     cy.get(this.elements.offer).first().click();
-
-    return this;
   }
 }
 

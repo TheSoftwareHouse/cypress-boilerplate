@@ -1,6 +1,6 @@
-import CareerPage from '../../pages/careerPage';
-import HomePage from '../../pages/homePage';
-import OfferPage from '../../pages/offerPage';
+import CareerPage from '../../pages/career.page';
+import HomePage from '../../pages/home.page';
+import OfferPage from '../../pages/offer.page';
 
 describe('As a developer I want to apply for a job in TSH.io', () => {
   const careerPage = new CareerPage();

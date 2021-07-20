@@ -5,3 +5,4 @@ cypress/screenshots/
 cypress/reports/
 docker-compose.override.yml
 node_modules/
+.env

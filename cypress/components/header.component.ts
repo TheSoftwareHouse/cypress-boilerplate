@@ -1,4 +1,4 @@
-import BaseComponent from './baseComponent';
+import BaseComponent from './base.component';
 
 class HeaderComponent extends BaseComponent {
   constructor() {
@@ -9,16 +9,12 @@ class HeaderComponent extends BaseComponent {
     };
   }
 
-  testLogoPresence() {
+  public testLogoPresence() {
     cy.isVisible(this.elements.logo);
-
-    return this;
   }
 
-  goToCareerPage() {
+  public goToCareerPage() {
     cy.get(this.elements.navigationLink).contains(this.commonData.header.career).click();
-
-    return this;
   }
 }
 

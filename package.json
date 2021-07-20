@@ -1,50 +1,43 @@
 {
   "name": "cypress-boilerplate",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "Boilerplate for cypress project",
-  "author": "Józef Szymala",
-  "main": "index.js",
+  "author": "The Software House sp. z. o. o.",
   "scripts": {
     "cy:open": "cypress open",
     "cy:run": "cypress run",
     "cy:start": "npm run reports:clean; npm run cy:run; npm run reports:merge; npm run reports:generate",
+    "format": "npm run prettier && npm run lint",
+    "lint": "eslint  \"cypress/**/*.ts\" --fix --ignore-path=\".gitignore\"",
+    "prettier": "prettier --write .",
     "reports:clean": "rm -rf cypress/reports/integration",
-    "reports:merge": "npx mochawesome-merge cypress/reports/integration/*.json --output cypress/reports/report.json",
     "reports:generate": "npx mochawesome-report-generator --reportDir cypress/reports cypress/reports/report.json",
-    "lint": "eslint  \"cypress/**/*.js\" --fix --ignore-path=\".gitignore\"",
-    "prettier": "prettier --write \"cypress/**/*.js\" --ignore-path=\".gitignore\""
+    "reports:merge": "npx mochawesome-merge cypress/reports/integration/*.json --output cypress/reports/report.json"
   },
   "dependencies": {
-    "cypress": "5.1.0",
-    "cypress-file-upload": "4.1.1",
+    "@typescript-eslint/eslint-plugin": "4.28.1",
+    "@typescript-eslint/parser": "4.28.1",
+    "cypress": "7.6.0",
+    "cypress-file-upload": "5.0.8",
     "cypress-plugin-tab": "1.0.5",
-    "cypress-xpath": "1.4.0",
-    "eslint": "6.8.0",
-    "eslint-config-airbnb": "18.1.0",
-    "eslint-config-prettier": "6.10.1",
-    "eslint-plugin-cypress": "2.10.3",
-    "eslint-plugin-import": "2.20.2",
-    "eslint-plugin-jsx-a11y": "6.2.3",
-    "eslint-plugin-react": "7.19.0",
-    "faker": "4.1.0",
-    "fs-extra": "9.0.0",
-    "husky": "4.2.3",
-    "lint-staged": "10.1.0",
-    "mocha": "8.1.1",
-    "mochawesome": "6.1.1",
-    "mochawesome-merge": "4.1.0",
-    "mochawesome-report-generator": "5.1.0",
-    "prettier": "2.0.2"
-  },
-  "lint-staged": {
-    "cypress/**/*.js": [
-      "npm run prettier",
-      "npm run lint"
-    ]
-  },
-  "husky": {
-    "hooks": {
-      "pre-commit": "lint-staged"
-    }
+    "cypress-wait-until": "1.7.1",
+    "cypress-xpath": "1.6.2",
+    "dotenv": "10.0.0",
+    "eslint": "7.29.0",
+    "eslint-config-airbnb-typescript": "12.3.1",
+    "eslint-config-prettier": "8.3.0",
+    "eslint-plugin-cypress": "2.11.3",
+    "eslint-plugin-import": "2.23.4",
+    "eslint-plugin-import-alias": "1.2.0",
+    "eslint-plugin-jsx-a11y": "6.4.1",
+    "eslint-plugin-react": "7.24.0",
+    "faker": "5.5.3",
+    "fs-extra": "10.0.0",
+    "mocha": "9.0.1",
+    "mochawesome": "6.2.2",
+    "mochawesome-merge": "4.2.0",
+    "mochawesome-report-generator": "5.2.0",
+    "prettier": "2.3.2",
+    "typescript": "4.3.4"
   }
 }

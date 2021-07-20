@@ -1,4 +1,4 @@
-import BaseComponent from './baseComponent';
+import BaseComponent from './base.component';
 
 class BenefitsComponent extends BaseComponent {
   constructor() {
@@ -9,16 +9,12 @@ class BenefitsComponent extends BaseComponent {
     };
   }
 
-  testBenefitsPresence() {
+  public testBenefitsPresence() {
     cy.isVisible(this.elements.section);
-
-    return this;
   }
 
-  testBenefitsNumber() {
+  public testBenefitsNumber() {
     cy.get(this.elements.section).find(this.elements.benefit).should('have.length', 18);
-
-    return this;
   }
 }
 

@@ -1,5 +1,5 @@
-version: "3.2"
-services: 
+version: '3.2'
+services:
   e2e:
     build: .
     container_name: cypress

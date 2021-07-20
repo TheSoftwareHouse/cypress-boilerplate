@@ -1,6 +1,6 @@
-import HeaderComponent from '../components/headerComponent';
+import HeaderComponent from '../components/header.component';
 
-import BasePage from './basePage';
+import BasePage from './base.page';
 
 class HomePage extends BasePage {
   constructor() {
@@ -12,29 +12,17 @@ class HomePage extends BasePage {
     };
   }
 
-  open() {
-    cy.visit(this.url);
-
-    return this;
-  }
-
-  testTitle() {
+  public testTitle() {
     cy.title().should('equal', this.commonData.title.home);
-
-    return this;
   }
 
-  testCommonElements() {
+  public testCommonElements() {
     this.testTitle();
     this.components.header.testLogoPresence();
-
-    return this;
   }
 
-  goToCareerPage() {
+  public goToCareerPage() {
     this.components.header.goToCareerPage();
-
-    return this;
   }
 }
 

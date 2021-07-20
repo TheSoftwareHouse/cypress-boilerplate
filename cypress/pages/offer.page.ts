@@ -1,8 +1,12 @@
-import BenefitsComponent from '../components/benefitsComponent';
-import HeaderComponent from '../components/headerComponent';
+import BenefitsComponent from '../components/benefits.component';
+import HeaderComponent from '../components/header.component';
 
-class OfferPage {
+import BasePage from './base.page';
+
+class OfferPage extends BasePage {
   constructor() {
+    super();
+
     this.elements = {
       salary: '.single-offer__sticky-description',
       applyButton: '.single-offer__sticky-content .job-apply__button',
@@ -13,25 +17,19 @@ class OfferPage {
     };
   }
 
-  testSalaryAvailability() {
+  public testSalaryAvailability() {
     cy.isVisible(this.elements.salary);
-
-    return this;
   }
 
-  testCommonElements() {
+  public testCommonElements() {
     this.components.header.testLogoPresence();
 
     this.components.benefits.testBenefitsPresence();
     this.components.benefits.testBenefitsNumber();
-
-    return this;
   }
 
-  apply() {
+  public apply() {
     cy.get(this.elements.applyButton).click();
-
-    return this;
   }
 }
 
