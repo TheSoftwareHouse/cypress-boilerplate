@@ -65,6 +65,13 @@ Using cypress in command line give as opportunity to make screenshots and record
 
 Running command `npm run cy:start` will run complete set of tests and generate report with Mochawesome generator. It will be added to `/cypress/reports/` directory.
 
+Using commands: 
+`npm run cy:start:chrome`, 
+`npm run cy:start:firefox`, 
+`npm run cy:start:edge`
+
+give opportunity to run tests in other browsers than Electron
+
 ## Running Cypress with Test Runner
 
 To open `Test Runner`:
@@ -106,4 +113,7 @@ In case you would like to remove docker-compose service type: `docker-compose ps
 
 ## Running test from CircleCI
 
-In `.circleci` folder there is `config.yml` with configuration of the running test in CircleCI. After login in CCI add your repository. For more information read article with information about [full configuration](https://tsh.npio/blog/continuous-integration-for-e2e-tests-2-4-circleci-configuration-for-test-automation/)
+In `.circleci` folder there is `config.yml` with configuration of the running test in CircleCI. After login in CCI add your repository. For more information read article with information about [full configuration](https://tsh.io/blog/continuous-integration-for-e2e-tests-2-4-circleci-configuration-for-test-automation/)
+
+## Running test from GitLab
+In `.gitlab-ci.yml` file is a configuration of the running test in GitLab. This is a proposition for a scheduled CI pipeline with a division on specific browsers. Artifacts are always generated and GitLab will keep them per 1 month. After login in GitLab add your repository. For more information go to the CI/CD GitLab page [more configuration options](https://docs.gitlab.com/ee/ci/). If you need more information about pipelines schedules, you can find them here [pipeline schedules](https://docs.gitlab.com/ee/ci/pipelines/schedules.html). 

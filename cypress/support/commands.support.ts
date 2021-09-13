@@ -1,4 +1,5 @@
 import 'cypress-file-upload';
+import 'cypress-iframe';
 import 'cypress-plugin-tab';
 import 'cypress-wait-until';
 import { mailsac } from './emails/mailsac.support';
