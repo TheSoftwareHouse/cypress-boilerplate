@@ -4,13 +4,18 @@ class HeaderComponent extends BaseComponent {
   constructor() {
     super();
     this.elements = {
-      logo: '.site-header__logo',
-      navigationLink: '.nav-list__link',
+      logo: '.main-logo',
+      homePagelogo: '.site-header__logo',
+      navigationLink: '.nav-list__link-title',
     };
   }
 
-  public testLogoPresence() {
-    cy.isVisible(this.elements.logo);
+  public testLogoPresence(isHomePage: boolean = false) {
+    if (isHomePage) {
+      cy.isVisible(this.elements.homePagelogo);
+    } else {
+      cy.isVisible(this.elements.logo);
+    }
   }
 
   public goToCareerPage() {

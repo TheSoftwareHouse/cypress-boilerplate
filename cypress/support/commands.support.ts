@@ -1,4 +1,5 @@
 import 'cypress-file-upload';
+import 'cypress-commands';
 import 'cypress-iframe';
 import 'cypress-plugin-tab';
 import 'cypress-wait-until';

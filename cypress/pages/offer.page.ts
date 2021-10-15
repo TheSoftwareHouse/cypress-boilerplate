@@ -8,8 +8,8 @@ class OfferPage extends BasePage {
     super();
 
     this.elements = {
-      salary: '.single-offer__sticky-description',
-      applyButton: '.single-offer__sticky-content .job-apply__button',
+      salary: '.salaries',
+      applyButton: '.open-modal',
     };
     this.components = {
       benefits: new BenefitsComponent(),

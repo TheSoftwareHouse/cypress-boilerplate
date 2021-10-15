@@ -8,25 +8,26 @@ describe('As a developer I want to apply for a job in TSH.io', () => {
   const offerPage = new OfferPage();
 
   it('Visit Home page', () => {
+    const isHomePage: boolean = true;
     homePage.open();
-    homePage.testCommonElements();
+    homePage.testCommonElements(isHomePage);
   });
 
   it('Visit Career page', () => {
-    homePage.goToCareerPage();
-
+    careerPage.open();
     careerPage.testCommonElements();
     careerPage.testOffersCount();
   });
 
   it('Select first available offer', () => {
+    careerPage.open();
     careerPage.goToFirstOfferDetails();
-
-    offerPage.testCommonElements();
     offerPage.testSalaryAvailability();
   });
 
   it('Apply for an offer', () => {
+    careerPage.open();
+    careerPage.goToFirstOfferDetails();
     offerPage.apply();
   });
 });

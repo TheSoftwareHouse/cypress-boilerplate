@@ -5,14 +5,14 @@ export type CommonData = {
 export const commonData: CommonData = {
   title: {
     home: 'The Software House: custom software development company',
-    careerPL: 'Praca dla programisty – oferty pracy w The Software House',
-    careerEN: 'Job for developer – job offers at The Software House',
+    careerPL: 'Twoje miejsce w IT. Praca w The Software House',
+    careerEN: 'Your place in IT. Work at The Software House',
   },
   header: {
     career: 'Career',
   },
   path: {
-    careerPL: '/pl/kariera',
+    careerPL: '/pl/praca',
     careerEN: '/career',
   },
 };

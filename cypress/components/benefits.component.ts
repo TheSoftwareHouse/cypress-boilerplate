@@ -4,8 +4,8 @@ class BenefitsComponent extends BaseComponent {
   constructor() {
     super();
     this.elements = {
-      section: '.benefits',
-      benefit: '.benefits__each',
+      section: '.advantages',
+      benefit: '.accordion-switcher',
     };
   }
 
@@ -14,7 +14,7 @@ class BenefitsComponent extends BaseComponent {
   }
 
   public testBenefitsNumber() {
-    cy.get(this.elements.section).find(this.elements.benefit).should('have.length', 18);
+    cy.get(this.elements.benefit).should('have.length', 12);
   }
 }
 

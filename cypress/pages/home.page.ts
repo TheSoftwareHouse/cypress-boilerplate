@@ -16,9 +16,9 @@ class HomePage extends BasePage {
     cy.title().should('equal', this.commonData.title.home);
   }
 
-  public testCommonElements() {
+  public testCommonElements(isHomePage: boolean = false) {
     this.testTitle();
-    this.components.header.testLogoPresence();
+    this.components.header.testLogoPresence(isHomePage);
   }
 
   public goToCareerPage() {

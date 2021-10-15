@@ -6,9 +6,11 @@ import BasePage from './base.page';
 class CareerPage extends BasePage {
   constructor() {
     super();
+    this.url = 'https://www.tsh.io/career';
     this.elements = {
       activeTab: '.career__tab.is-active',
-      offer: '.our-offer__offer',
+      offer: '.offer-preview-box',
+      offerSection: '[id="job-offers"]',
     };
     this.components = {
       benefits: new BenefitsComponent(),
@@ -27,7 +29,7 @@ class CareerPage extends BasePage {
   }
 
   public testOffersCount() {
-    cy.get(this.elements.activeTab).find(this.elements.offer).its('length').should('be.greaterThan', 0);
+    cy.get(this.elements.offer).its('length').should('be.greaterThan', 0);
   }
 
   public testCommonElements() {
@@ -40,7 +42,7 @@ class CareerPage extends BasePage {
   }
 
   public goToFirstOfferDetails() {
-    cy.get(this.elements.offer).first().click();
+    cy.get(this.elements.offerSection).find(this.elements.offer).first().click();
   }
 }
 
