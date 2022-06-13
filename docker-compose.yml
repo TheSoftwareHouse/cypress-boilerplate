@@ -1,0 +1,8 @@
+version: '3.2'
+services:
+  e2e:
+    build: .
+    container_name: cypress
+    volumes:
+      - ./cypress:/app/cypress
+      - ./cypress.json:/app/cypress.json
